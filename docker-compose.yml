@@ -1,0 +1,23 @@
+version: '3'
+services:
+    database:
+        container_name: postgres-csc2022
+        image: postgres:latest
+        ports:
+            - "5433:5432"  
+        volumes:
+            - C:\Users\New\data\postgres\csc2022:\data\postgres 
+        env_file:
+            - csc2021.env
+    web:
+       container_name: nginx-csc2021
+       build:
+            context: .
+            dockerfile: nginx-primer/Dockerfile
+       ports:
+         - 8080:80
+         - 8443:443
+       extra_hosts:
+         - "app-server:192.168.1.3" # Here, I am using the IP alias I set for en0 using sudo ifconfig en0 alias 192.168.1.3 255.255.255.0. I normally need to set this alias each time I restart the system 
+         #web address : http://csc2022.com:8080/static-web-example.html
+         #http://csc2022.com:8080/ : nginx primer would serve the user the first html file it has access to which is the index file

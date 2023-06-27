@@ -1,0 +1,12 @@
+{
+  "name": "es6-primer",
+  "version": "0.0.1",
+  "description": "My first EcmaScript standard JS project in class",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chima Okwuokei",
+  "license": "MIT",
+  "type" : "module"
+}
